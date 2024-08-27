@@ -1,0 +1,21 @@
+<p-table [value]="rows" style="width:100%; table-layout:auto;">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Data</th>
+      <th>Hora Início</th>
+      <th>Hora Fim</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-row let-i="rowIndex">
+    <tr>
+      <td><input pInputText placeholder="Selecione a data" type="date" [(ngModel)]="row.data"></td>
+      <td><input pInputText placeholder="Hora Início" type="time" [(ngModel)]="row.horaInicio"></td>
+      <td><input pInputText placeholder="Hora Fim" type="time" [(ngModel)]="row.horaFim"></td>
+      <td>
+        <p-button type="button" label="Excluir" icon="pi pi-trash" (click)="removeRow(i)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<p-button type="button" label="Adicionar Sobreaviso" icon="pi pi-plus" (click)="addRow()"></p-button>

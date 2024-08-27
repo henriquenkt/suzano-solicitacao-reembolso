@@ -1,0 +1,26 @@
+<p-table [value]="rows" style="width:100%; table-layout:auto;">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Data</th>
+      <th>Hora</th>
+      <th>Justificativa</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-row let-i="rowIndex">
+    <tr>
+      <td><input pInputText placeholder="Selecione a data" type="date" [(ngModel)]="row.data"></td>
+      <td><input pInputText placeholder="Selecione a hora" type="time" [(ngModel)]="row.hora"></td>
+      <td>
+        <select pInputText title="Justificativa" [(ngModel)]="row.justificativa">
+          <option value="" disabled>Selecione a justificativa</option>
+          <option *ngFor="let justificativa of justificativas" [value]="justificativa">{{justificativa}}</option>
+        </select>
+      </td>
+      <td>
+        <p-button type="button" label="Excluir" icon="pi pi-trash" (click)="removeRow(i)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<p-button type="button" label="Adicionar Marcação" icon="pi pi-plus" (click)="addRow()"></p-button>

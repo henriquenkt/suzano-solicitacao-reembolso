@@ -1,0 +1,33 @@
+<p-table [value]="rows" style="width:100%; table-layout:auto;">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Data Início</th>
+      <th>Data Fim</th>
+      <th>Escala</th>
+      <th>Turma</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-row let-i="rowIndex">
+    <tr>
+      <td><input pInputText placeholder="Data Início" type="date" [(ngModel)]="row.dataInicio"></td>
+      <td><input pInputText placeholder="Data Fim" type="date" [(ngModel)]="row.dataFim"></td>
+      <td>
+        <select pInputText title="Escala" [(ngModel)]="row.escala">
+          <option value="" disabled>Selecione a escala</option>
+          <option *ngFor="let escala of escalas" [value]="escala">{{escala}}</option>
+        </select>
+      </td>
+      <td>
+        <select pInputText title="Turma" [(ngModel)]="row.turma">
+          <option value="" disabled>Selecione a turma</option>
+          <option *ngFor="let turma of turmas" [value]="turma">{{turma}}</option>
+        </select>
+      </td>
+      <td>
+        <p-button type="button" label="Excluir" icon="pi pi-trash" (click)="removeRow(i)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<p-button type="button" label="Adicionar Troca de Escala" icon="pi pi-plus" (click)="addRow()"></p-button>

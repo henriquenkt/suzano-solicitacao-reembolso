@@ -1,0 +1,61 @@
+<p-table [value]="rows" style="width:50%; table-layout:auto;" class="custom-table">
+  <ng-template pTemplate="header">
+    <tr class="header-row">
+      <th>Matrícula</th>
+      <th>Nome</th>
+      <th>Centro de Custo</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Tipo de Ajuste</th>
+      <th>
+        <input title="SelTodosAprovar" type="checkbox" (change)="toggleAll('aprovado', $event)"> Aprovar
+      </th>
+      <th>
+        <input title="SelTodosReprovar" type="checkbox" (change)="toggleAll('reprovado', $event)"> Reprovar
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-row let-i="rowIndex">
+    <tr (click)="openPopup(row)" class="body-row">
+      <td>{{ row.matricula }}</td>
+      <td>{{ row.nome }}</td>
+      <td>{{ row.centroDeCusto }}</td>
+      <td>{{ row.local }}</td>
+      <td>{{ row.data | date:'dd/MM/yyyy' }}</td>
+      <td>{{ row.tipoReembolso }}</td>
+      <td>
+        <input title="Aprovar" type="checkbox" [(ngModel)]="row.aprovado" (click)="$event.stopPropagation()">
+      </td>
+      <td>
+        <input title="Reprovar" type="checkbox" [(ngModel)]="row.reprovado" (click)="$event.stopPropagation()">
+        <!-- <p-toggleButton
+        [(ngModel)]="row.reprovado"
+        onLabel="Aprovado"
+        offLabel="Reprovado" />
+      </td> -->
+    </tr>
+  </ng-template>
+</p-table>
+<br><br>
+<p-button title="Salvar" class="custom-button" type="button" label="Salvar" (click)="save()"></p-button>
+
+<!-- Popup modal -->
+<p-dialog [(visible)]="displayModal" [modal]="true" [closable]="false" [style]="{width: '50vw'}">
+  <ng-template pTemplate="header">
+
+    <h2>Detalhes</h2>
+  </ng-template>
+  <ng-template pTemplate="content">
+    <p><strong>Matrícula:</strong> {{ selectedRow?.matricula }}</p>
+    <p><strong>Nome:</strong> {{ selectedRow?.nome }}</p>
+    <p><strong>Centro de Custo:</strong> {{ selectedRow?.centroDeCusto }}</p>
+    <p><strong>Local:</strong> {{ selectedRow?.local }}</p>
+    <p><strong>Data:</strong> {{ selectedRow?.data | date:'dd/MM/yyyy' }}</p>
+    <p><strong>Hora:</strong> 14:00 </p>
+    <p><strong>Justificativa:</strong> Reunião de Equipe </p>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <p-button title="Fechar" class="custom-button" type="button" label="Fechar"  (click)="closePopup()"></p-button>
+  </ng-template>
+</p-dialog>

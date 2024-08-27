@@ -1,0 +1,32 @@
+<ng-container *ngIf="formLoaded">
+  <form class="row g-3" id="form" novalidate name="form" *ngIf="formLoaded">
+    <div class="col-md-6">
+      <span> <b>Empresa: </b> {{ data.empresa }} - {{ data.nome_empresa }}</span> <br>
+      <span> <b>Colaborador: </b>{{ data.matricula }} - {{ data.nome_colaborador }}</span> <br>
+      <span> <b>Cargo: </b>{{ data.cargo }}</span> <br>
+      <span> <b>Centro de Custo: </b>{{ data.centro_de_custo }}</span> <br>
+      <span> <b>Admissâo: </b>{{ data.data_admissao }}</span> <br>
+    </div>
+
+    <div class="col-md-6">
+      <label for="options"><b>Reembolso:</b></label>
+      <br>
+      <select id="options" name="options" [(ngModel)]="selectedOption">
+        <option *ngFor="let option of options" [value]="option.value">{{ option.text }}</option>
+      </select>
+    </div>
+
+    <div class="card" *ngIf="selectedOption == 1">
+      <app-inclusao-marcacao></app-inclusao-marcacao>
+    </div>
+    <div class="card" *ngIf="selectedOption == 2">
+      <app-abono-dia></app-abono-dia>
+    </div>
+    <div class="card" *ngIf="selectedOption == 3">
+      <app-troca-escala></app-troca-escala>
+    </div>
+    <div class="card" *ngIf="selectedOption == 4">
+      <app-sobre-aviso></app-sobre-aviso>
+    </div>
+  </form>
+</ng-container>

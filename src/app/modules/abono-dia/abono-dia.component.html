@@ -1,0 +1,31 @@
+<p-table [value]="rows" style="width:100%; table-layout:auto;">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Data Inicial</th>
+      <th>Hora Inicial</th>
+      <th>Data Final</th>
+      <th>Hora Final</th>
+      <th>Motivo do Abono</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-row let-i="rowIndex">
+    <tr>
+      <td><input pInputText placeholder="Data inicial" type="date" [(ngModel)]="row.dataInicial"></td>
+      <td><input pInputText placeholder="Hora inicial" type="time" [(ngModel)]="row.horaInicial"></td>
+      <td><input pInputText placeholder="Data final" type="date" [(ngModel)]="row.dataFinal"></td>
+      <td><input pInputText placeholder="Hora final" type="time" [(ngModel)]="row.horaFinal"></td>
+      <td>
+        <select title="Motivos" [(ngModel)]="row.motivoAbono">
+          <option value="" disabled selected>Selecione o motivo</option>
+          <option *ngFor="let motivo of motivosAbono" [value]="motivo">{{motivo}}</option>
+        </select>
+      </td>
+      <td>
+        <p-button type="button" class="custom-button" label="Excluir" icon="pi pi-trash" (click)="removeRow(i)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<br>
+<p-button type="button" class="custom-button" label="Adicionar Abono" icon="pi pi-plus" (click)="addRow()"></p-button>

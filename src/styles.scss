@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/scss/bootstrap';
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+
+// .modal {
+//   display: block;
+//   position: fixed;
+//   z-index: 1;
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+//   overflow: auto;
+//   background-color: rgb(0,0,0);
+//   background-color: rgba(0,0,0,0.4);
+// }
+
+// .modal-content {
+//   background-color: #fefefe;
+//   margin: 15% auto;
+//   padding: 20px;
+//   border: 1px solid #888;
+//   width: 80%;
+// }
+
+
+// .close {
+//   color: #aaa;
+//   float: right;
+//   font-size: 28px;
+//   font-weight: bold;
+// }
+
+// .close:hover,
+// .close:focus {
+//   color: black;
+//   text-decoration: none;
+//   cursor: pointer;
+// }
+
+
+// .custom-table .header-row {
+//   background-color: #f0f0f0; /* Cor de fundo cinza para o cabeçalho */
+// }
+
+// .custom-table .body-row {
+//   border-bottom: 1px solid #ddd; /* Adiciona uma linha de divisão entre as linhas */
+// }
+
+// .custom-table .body-row:hover {
+//   background-color: #f9f9f9; /* Cor de fundo ao passar o mouse sobre a linha */
+// }
+
+// p-table {
+//   border-collapse: collapse;
+// }
+
+// p-table th,
+// p-table td {
+//   padding: 8px; /* Espaçamento interno nas células */
+//   text-align: left; /* Alinhamento do texto à esquerda */
+// }
+
+// p-table th {
+//   border-bottom: 2px solid #ccc; /* Adiciona uma borda inferior mais grossa ao cabeçalho */
+// }
+
+// p-table td {
+//   border-bottom: 1px solid #ddd; /* Adiciona uma borda inferior fina às células */
+// }
+
+// .custom-button {
+//   font-size: 6px; /* Tamanho da fonte do texto */
+//   padding: 10px 20px; /* Espaçamento interno */
+//   height: 100px; /* Altura do botão */
+//   width: 100px;
+// }
